@@ -1,5 +1,5 @@
 package pila;
 
-public class Node {
+public class Node<E> {
 
 }
