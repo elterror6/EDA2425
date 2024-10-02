@@ -1,5 +1,5 @@
 package pila;
 
-public class EmptyStackException extends RuntimeException {
+public class EmptyStackException {
 
 }

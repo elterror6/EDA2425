@@ -1,2 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author diego
+ *
+ */
 module Stack {
 }
