@@ -40,6 +40,7 @@ public class DinamicStack<E> implements Stack<E> {
      * </p>
      * @return Elemento que se ha eliminado de la pila
      */
+    @Override
     public E pop() throws EmptyStackException {
         E element;
         if (isEmpty()) {
@@ -58,6 +59,7 @@ public class DinamicStack<E> implements Stack<E> {
      * </p>
      * @return Elemento que esta en la cima de la pila
      */
+    @Override
     public E top() throws EmptyStackException {
         if (isEmpty()) {
             throw new EmptyStackException("La pila está vacía");
