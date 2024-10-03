@@ -41,10 +41,11 @@ public class DinamicStack<E> implements Stack<E> {
      * @return Elemento que se ha eliminado de la pila
      */
     public E pop() throws EmptyStackException {
+        E element;
         if (isEmpty()) {
             throw new EmptyStackException("La pila está vacía");
         } else {
-            E element = top.getElement();
+            element = top.getElement();
             top = top.getNext();
             --size;
         }
