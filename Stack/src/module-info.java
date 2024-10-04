@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author diego
- *
- */
-module Stack {
-}
