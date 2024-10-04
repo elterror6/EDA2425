@@ -56,8 +56,6 @@ public interface Stack<E> {
 	 * </p>
 	 * @return Una cadena de texto con información sobre la pila
 	 */
-	
-
 	@Override
 	public abstract String toString();
 }
