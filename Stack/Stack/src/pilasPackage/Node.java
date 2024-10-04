@@ -1,4 +1,4 @@
-package Stack;
+package pilasPackage;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -8,6 +8,7 @@ package Stack;
  * </p>
  *
  * @author Daniel Díaz García
+ * @author Diego Repullo Higueruela
  * @param <E> El tipo de elemento
  */
 public class Node<E> {

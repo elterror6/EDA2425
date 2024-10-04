@@ -1,4 +1,4 @@
-package Stack;
+package pilasPackage;
 
 /**
  * <h1>StaticStack</h1>
@@ -7,6 +7,7 @@ package Stack;
  * </p>
  *
  * @author Daniel Díaz García
+ * @author Diego Repullo Higueruela
  * @param <E> El tipo de elemento
  */
 public class StaticStack<E> implements Stack<E> {
