@@ -29,7 +29,7 @@ public class StaticStack<E> implements Stack<E> {
 	@Override
 	public void push(E element) {
 		if (this.t == this.stack.length - 1) {
-			E[] ns = (E[]) new Object[s.length+1];
+			E[] ns = (E[]) new Object[this.stack.length*2];
 			for (int i = 0; i<this.stack.length; i++) {
 				ns[i]=this.stack[i];
 			}
