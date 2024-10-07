@@ -18,7 +18,9 @@ public class Main {
 	     for (int i = 0; i < 10; i++) {
 	         sstack.push(i);
 	     }
-
+	     
+	     System.out.println(sstack.toString());
+	     
 	     while (sstack.isEmpty() == false) { 
 	         System.out.print(sstack.pop() + " "  );
 	     }
