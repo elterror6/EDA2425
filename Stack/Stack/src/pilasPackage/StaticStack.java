@@ -120,7 +120,15 @@ public class StaticStack<E> implements Stack<E> {
 	 * @return the string
 	 */
 	@Override
-    public String toString() {
-		return "pila estatica";
+	public String toString() {
+	    String result = "[";  
+	    for (int i = 0; i <= t; i++){
+	        result = result + stack[i];
+	        if (i < t){
+	            result = result + ", ";
+	        }
+	    }
+	    result = result + "]"; 
+	    return result;
 	}
 }
