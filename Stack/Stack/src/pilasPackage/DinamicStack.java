@@ -8,6 +8,7 @@ package pilasPackage;
  * </p>
  *
  * @author Daniel Díaz García
+ * @author Diego Repullo Higueruela
  * @param <E> El tipo de elemento
  */
 public class DinamicStack<E> implements Stack<E> {
@@ -104,13 +105,36 @@ public class DinamicStack<E> implements Stack<E> {
 		return top == null ;
 	}
     
-    /**
-     * To string.
-     *
-     * @return the string
-     */
+   /**
+	 * <h2>toString()</h2>
+	 * <p>
+	 * Método que muestra todos los elementos de la pila.
+	 * </p>
+	 * @return Todos los elementos de la pila
+	 */
     @Override
     public String toString() {
-        return "pila dinámica";
+    	return recorrerNodos(top,0);
+    }
+    /**
+     * <h2>recorrerNodos()</h2>
+     * <p>
+     * Método privado para recorrer la estructura de nodos de manera recursiva.
+     * </p>
+     * @param n Nodo de la estructura
+     * @param s Número para saber cuál es el primer elemento
+     * @return Todos los elementos de la pila devueltos de manera ordenada, donde el primer elemento de la pila es el de la izquierda y el último es el de la derecha.
+     */
+    private String recorrerNodos(Node<E> n, int s) {
+        if (n == null) {
+            return "["; 
+        }
+        ++s;
+        if (s>1) {
+        	return recorrerNodos(n.getNext(),s-1) + n.getElement() + ", ";
+        } else {
+        	return recorrerNodos(n.getNext(),s) + n.getElement() + "]";
+        }
     }
 }
+
