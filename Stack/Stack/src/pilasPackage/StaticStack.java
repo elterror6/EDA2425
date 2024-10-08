@@ -115,9 +115,11 @@ public class StaticStack<E> implements Stack<E> {
 	}
 	
 	/**
-	 * To string.
-	 *
-	 * @return the string
+	 * <h2>toString()</h2>
+	 * <p>
+	 * Método que muestra todos los elementos de la pila.
+	 * </p>
+	 * @return Todos los elementos de la pila
 	 */
 	@Override
 	public String toString() {
