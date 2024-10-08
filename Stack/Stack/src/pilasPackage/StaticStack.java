@@ -30,7 +30,7 @@ public class StaticStack<E> implements Stack<E> {
 	/**
 	 * <h2>push()</h2>
 	 * <p>
-	 * Método que inserta un nuevo elemento en la pila. Se comprueba si la pila está llena, si lo está, se ajusta el tamaño del array y se inserta el nuevo elemento.
+	 * Método que inserta un nuevo elemento en la pila.<br>Se comprueba si la pila está llena, si lo está, se ajusta el tamaño del array y se inserta el nuevo elemento.
 	 * </p>
 	 * @param element Elemento a insertar en la pila
 	 */
@@ -54,7 +54,7 @@ public class StaticStack<E> implements Stack<E> {
 	/**
 	 * <h2>pop()</h2>
 	 * <p>
-	 * Método que elimina y devuelve el elemento que está en la cima de la pila. Se comprueba si la pila está vacía lanza una excepción de tipo EmptyStackException.
+	 * Método que elimina y devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía lanza una excepción de tipo EmptyStackException.
 	 * </p>
 	 *
 	 * @return elemento que se ha eliminado de la pila
@@ -75,7 +75,7 @@ public class StaticStack<E> implements Stack<E> {
 	/**
 	 * <h2>top()</h2>
 	 * <p>
-	 * Método que devuelve el elemento que está en la cima de la pila. Se comprueba si la pila está vacía lanza una excepción de tipo EmptyStackException.
+	 * Método que devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía lanza una excepción de tipo EmptyStackException.
 	 * </p>
 	 *
 	 * @return elemento que esta en la cima de la pila
@@ -117,7 +117,7 @@ public class StaticStack<E> implements Stack<E> {
 	/**
 	 * <h2>toString()</h2>
 	 * <p>
-	 * Método que muestra todos los elementos de la pila.
+	 * Método que muestra todos los elementos de la pila.<br>Se recorre la matriz unidimensional que representa la pila y se añaden a una cadena de texto la cuál se devuelve.
 	 * </p>
 	 * @return Todos los elementos de la pila
 	 */

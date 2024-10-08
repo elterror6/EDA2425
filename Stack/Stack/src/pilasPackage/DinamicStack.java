@@ -31,7 +31,7 @@ public class DinamicStack<E> implements Stack<E> {
     /**
      * <h2>push()</h2>
      * <p>
-     * Método que inserta un nuevo elemento en la pila. Se crea un nuevo nodo con el elemento y lo añade al principio de la pila.
+     * Método que inserta un nuevo elemento en la pila.<br>Se crea un nuevo nodo con el elemento y lo añade al principio de la pila.
      * </p>
      * @param element Elemento a insertar en la pila
      */
@@ -46,7 +46,7 @@ public class DinamicStack<E> implements Stack<E> {
     /**
      * <h2>pop()</h2>
      * <p>
-     * Método que elimina y devuelve el elemento que está en la cima de la pila. Se comprueba si la pila está vacía, si lo está, se lanza una excepción de tipo EmptyStackException.
+     * Método que elimina y devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía, si lo está, se lanza una excepción de tipo EmptyStackException.
      * </p>
      *
      * @return Elemento que se ha eliminado de la pila
@@ -68,7 +68,7 @@ public class DinamicStack<E> implements Stack<E> {
     /**
      * <h2>top()</h2>
      * <p>
-     * Método que devuelve el elemento que está en la cima de la pila. Se comprueba si la pila está vacía, si lo está, se lanza una excepción de tipo EmptyStackException.
+     * Método que devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía, si lo está, se lanza una excepción de tipo EmptyStackException.
      * </p>
      *
      * @return Elemento que esta en la cima de la pila
@@ -96,7 +96,7 @@ public class DinamicStack<E> implements Stack<E> {
     /**
 	* <h2>isEmpty()</h2>
     * <p>
-    * Método que comprueba si la pila está vacía. Se comprueba si el top es null.
+    * Método que comprueba si la pila está vacía.<br>Se comprueba si el top es null.
     * </p>
     * @return true si la pila está vacía, false en caso contrario.
     */
@@ -108,7 +108,7 @@ public class DinamicStack<E> implements Stack<E> {
    /**
 	 * <h2>toString()</h2>
 	 * <p>
-	 * Método que muestra todos los elementos de la pila.
+	 * Método que muestra todos los elementos de la pila.<br>Se recorre la estructura de nodos y se colocan en una estructura auxiliar de nodos en orden inverso para luego ir añadiendo cada elemento en una cadena de texto que luego se devuelve.
 	 * </p>
 	 * @return Todos los elementos de la pila
 	 */

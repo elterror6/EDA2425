@@ -1,6 +1,5 @@
 package pilasPackage;
 
-// TODO: Auto-generated Javadoc
 /**
  * <h1>Node</h1>
  * <p>
@@ -21,7 +20,7 @@ public class Node<E> {
     /**
      * <h2>Constructor</h2>
      * <p>
-     * Método constructor que crea un nuevo nodo con un elemento y sin siguiente.
+     * Método constructor que crea un nuevo nodo con un elemento y sin siguiente elemento.
      * </p>
      * @param element Elemento del nodo
      */
