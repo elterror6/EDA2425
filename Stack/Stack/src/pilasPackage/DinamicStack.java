@@ -114,27 +114,25 @@ public class DinamicStack<E> implements Stack<E> {
 	 */
     @Override
     public String toString() {
-    	return recorrerNodos(top,0);
-    }
-    /**
-     * <h2>recorrerNodos()</h2>
-     * <p>
-     * Método privado para recorrer la estructura de nodos de manera recursiva.
-     * </p>
-     * @param n Nodo de la estructura
-     * @param s Número para saber cuál es el primer elemento
-     * @return Todos los elementos de la pila devueltos de manera ordenada, donde el primer elemento de la pila es el de la izquierda y el último es el de la derecha.
-     */
-    private String recorrerNodos(Node<E> n, int s) {
-        if (n == null) {
-            return "["; 
-        }
-        ++s;
-        if (s>1) {
-        	return recorrerNodos(n.getNext(),s-1) + n.getElement() + ", ";
-        } else {
-        	return recorrerNodos(n.getNext(),s) + n.getElement() + "]";
-        }
+    	String p="[";
+    	Node<E> aux2, n=top;
+    	Node<E> aux1 = new Node<E>(n.getElement());
+    	n=n.getNext();
+    	while (n.getNext() != null) {
+    		aux2 = new Node<E>(n.getElement());
+    		aux2.setNext(aux1);
+    		aux1=aux2;
+    		n=n.getNext();
+    	}
+    	aux2 = new Node<E>(n.getElement());
+		aux2.setNext(aux1);
+		aux1=aux2;
+    	while (aux1.getNext() != null) {
+    		p += aux1.getElement()+", ";
+    		aux1=aux1.getNext();
+    	}
+    	p += aux1.getElement()+"]";
+    	return p;
     }
 }
 
