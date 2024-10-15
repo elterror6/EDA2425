@@ -1,7 +1,7 @@
 package pilasPackage;
 
 /**
- * <h1>EmptyStackException</h1>
+ * EmptyStackException
  * <p>
  * Clase que representa una excepción que se produce cuando se intenta realizar una operación y la pila está vacía.
  * </p>
@@ -10,7 +10,7 @@ package pilasPackage;
  */
 public class EmptyStackException extends RuntimeException {
     /**
-     * <h2>Constructor</h2>
+     * Constructor
      * <p>
      * Método constructor que crea una excepción con un mensaje personalizado.
      * </p>
