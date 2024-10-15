@@ -1,13 +1,11 @@
 package pilasPackage;
 
-// TODO: Auto-generated Javadoc
 /**
- * <h1>DinamicStack</h1>
  * <p>
- * Clase que implementa la interfaz Stack para una pila dinámica con una estructura de nodos.
+ * Clase que implementa la interfaz Stack para una pila dinamica con una estructura de nodos.
  * </p>
  *
- * @author Daniel Díaz García
+ * @author Daniel Diaz Garcia
  * @author Diego Repullo Higueruela
  * @param <E> El tipo de elemento
  */
@@ -19,9 +17,8 @@ public class DinamicStack<E> implements Stack<E> {
 	/** El elemento top. */
 	private Node<E> top;
 	/**
-     * <h2>Constructor</h2>
      * <p>
-     * Método constructor que crea una nueva pila vacía.
+     * Metodo constructor que crea una nueva pila vacia.
      * </p>
      */
 	public DinamicStack() {
@@ -29,9 +26,8 @@ public class DinamicStack<E> implements Stack<E> {
 	        size = 0;
 	}
     /**
-     * <h2>push()</h2>
      * <p>
-     * Método que inserta un nuevo elemento en la pila.<br>Se crea un nuevo nodo con el elemento y lo añade al principio de la pila.
+     * Metodo que inserta un nuevo elemento en la pila.<br>Se crea un nuevo nodo con el elemento y lo añade al principio de la pila.
      * </p>
      * @param element Elemento a insertar en la pila
      */
@@ -44,13 +40,12 @@ public class DinamicStack<E> implements Stack<E> {
     }
     
     /**
-     * <h2>pop()</h2>
      * <p>
-     * Método que elimina y devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía, si lo está, se lanza una excepción de tipo EmptyStackException.
+     * Metodo que elimina y devuelve el elemento que esta en la cima de la pila.<br>Se comprueba si la pila esta vacia, si lo esta, se lanza una excepcion de tipo EmptyStackException.
      * </p>
      *
      * @return Elemento que se ha eliminado de la pila
-     * @throws EmptyStackException La excepción de pila vacía
+     * @throws EmptyStackException La excepcion de pila vacia
      */
     @Override
     public E pop() throws EmptyStackException {
@@ -66,13 +61,12 @@ public class DinamicStack<E> implements Stack<E> {
     }
     
     /**
-     * <h2>top()</h2>
      * <p>
-     * Método que devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía, si lo está, se lanza una excepción de tipo EmptyStackException.
+     * Metodo que devuelve el elemento que esta en la cima de la pila.<br>Se comprueba si la pila esta vacia, si lo esta, se lanza una excepcion de tipo EmptyStackException.
      * </p>
      *
      * @return Elemento que esta en la cima de la pila
-     * @throws EmptyStackException La excepción de pila vacía
+     * @throws EmptyStackException La excepcion de pila vacia
      */
     @Override
     public E top() throws EmptyStackException {
@@ -83,9 +77,8 @@ public class DinamicStack<E> implements Stack<E> {
         }
     }
 	/**
-    * <h2>size()</h2>
     * <p>
-    * Método que devuelve el número de elementos que existe en la pila.
+    * Metodo que devuelve el numero de elementos que existe en la pila.
     * </p>
     * @return tamaño de la pila
     */
@@ -94,11 +87,10 @@ public class DinamicStack<E> implements Stack<E> {
         return size;
     }
     /**
-	* <h2>isEmpty()</h2>
     * <p>
-    * Método que comprueba si la pila está vacía.<br>Se comprueba si el top es null.
+    * Metodo que comprueba si la pila esta vacia.<br>Se comprueba si el top es null.
     * </p>
-    * @return true si la pila está vacía, false en caso contrario.
+    * @return true si la pila esta vacia, false en caso contrario.
     */
    @Override
 	public boolean isEmpty() {
@@ -106,9 +98,8 @@ public class DinamicStack<E> implements Stack<E> {
 	}
     
    /**
-	 * <h2>toString()</h2>
 	 * <p>
-	 * Método que muestra todos los elementos de la pila.<br>Se recorre la estructura de nodos y se colocan en una estructura auxiliar de nodos en orden inverso para luego ir añadiendo cada elemento en una cadena de texto que luego se devuelve.
+	 * Metodo que muestra todos los elementos de la pila.<br>Se recorre la estructura de nodos y se colocan en una estructura auxiliar de nodos en orden inverso para luego ir añadiendo cada elemento en una cadena de texto que luego se devuelve.
 	 * </p>
 	 * @return Todos los elementos de la pila
 	 */

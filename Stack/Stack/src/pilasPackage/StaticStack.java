@@ -1,12 +1,11 @@
 package pilasPackage;
 
 /**
- * <h1>StaticStack</h1>
  * <p>
- * Clase que implementa la interfaz Stack para una pila estática.
+ * Clase que implementa la interfaz Stack para una pila estatica.
  * </p>
  *
- * @author Daniel Díaz García
+ * @author Daniel Diaz Garcia
  * @author Diego Repullo Higueruela
  * @param <E> El tipo de elemento
  */
@@ -18,9 +17,8 @@ public class StaticStack<E> implements Stack<E> {
 	/** El indice top de la pila. */
 	private int t;
 	/**
-	 * <h2>Constructor</h2>
 	 * <p>
-	 * Método constructor que crea una nueva pila vacía.
+	 * Metodo constructor que crea una nueva pila vacia.
 	 * </p>
 	 */
 	public StaticStack() {
@@ -28,9 +26,8 @@ public class StaticStack<E> implements Stack<E> {
 		this.t = -1;
 	}
 	/**
-	 * <h2>push()</h2>
 	 * <p>
-	 * Método que inserta un nuevo elemento en la pila.<br>Se comprueba si la pila está llena, si lo está, se ajusta el tamaño del array y se inserta el nuevo elemento.
+	 * Metodo que inserta un nuevo elemento en la pila.<br>Se comprueba si la pila esta llena, si lo esta, se ajusta el tamaño del array y se inserta el nuevo elemento.
 	 * </p>
 	 * @param element Elemento a insertar en la pila
 	 */
@@ -52,13 +49,12 @@ public class StaticStack<E> implements Stack<E> {
 	}
 	
 	/**
-	 * <h2>pop()</h2>
 	 * <p>
-	 * Método que elimina y devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía lanza una excepción de tipo EmptyStackException.
+	 * Metodo que elimina y devuelve el elemento que esta en la cima de la pila.<br>Se comprueba si la pila esta vacia lanza una excepcion de tipo EmptyStackException.
 	 * </p>
 	 *
 	 * @return elemento que se ha eliminado de la pila
-	 * @throws EmptyStackException La excepción de pila vacía
+	 * @throws EmptyStackException La excepcion de pila vacia
 	 */
 	@Override
 	public E pop() throws EmptyStackException {
@@ -73,13 +69,12 @@ public class StaticStack<E> implements Stack<E> {
 	}
 	
 	/**
-	 * <h2>top()</h2>
 	 * <p>
-	 * Método que devuelve el elemento que está en la cima de la pila.<br>Se comprueba si la pila está vacía lanza una excepción de tipo EmptyStackException.
+	 * Metodo que devuelve el elemento que esta en la cima de la pila.<br>Se comprueba si la pila esta vacia lanza una excepcion de tipo EmptyStackException.
 	 * </p>
 	 *
 	 * @return elemento que esta en la cima de la pila
-	 * @throws EmptyStackException La excepción de pila vacía
+	 * @throws EmptyStackException La excepcion de pila vacia
 	 */
 	@Override
 	public E top() throws EmptyStackException{
@@ -92,20 +87,18 @@ public class StaticStack<E> implements Stack<E> {
 		}
 	}
 	/**
-	 * <h2>isEmpty()</h2>
 	 * <p>
-	 * Método que comprueba si la pila está vacía.
+	 * Metodo que comprueba si la pila esta vacia.
 	 * </p>
-	 * @return true si la pila está vacía, false en caso contrario.
+	 * @return true si la pila está vacia, false en caso contrario.
 	 */
 	@Override
 	public boolean isEmpty() {
         return this.t < 0;
 	}
 	/**
-	 * <h2>size()</h2>
 	 * <p>
-	 * Método que devuelve el número de elementos que existen en la pila.
+	 * Metodo que devuelve el numero de elementos que existen en la pila.
 	 * </p>
 	 * @return tamaño de la pila
 	 */
@@ -115,9 +108,8 @@ public class StaticStack<E> implements Stack<E> {
 	}
 	
 	/**
-	 * <h2>toString()</h2>
 	 * <p>
-	 * Método que muestra todos los elementos de la pila.<br>Se recorre la matriz unidimensional que representa la pila y se añaden a una cadena de texto la cuál se devuelve.
+	 * Metodo que muestra todos los elementos de la pila.<br>Se recorre la matriz unidimensional que representa la pila y se añaden a una cadena de texto la cual se devuelve.
 	 * </p>
 	 * @return Todos los elementos de la pila
 	 */
