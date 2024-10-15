@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"pilasPackage","l":"DinamicStack"},{"p":"pilasPackage","l":"EmptyStackException"},{"p":"Client","l":"Main"},{"p":"pilasPackage","l":"Node"},{"p":"pilasPackage","l":"Stack"},{"p":"pilasPackage","l":"StaticStack"}];updateSearchResults();
