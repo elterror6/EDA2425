@@ -7,36 +7,57 @@ public class DinamicQueue<E> implements Queue<E>{
 	private int size;
 	
 	public DinamicQueue() {
-		
+		this.queue=null;
+		this.front=null;
+		this.rear=null;
+		this.size=0;
 	}
+	
 	@Override
 	public void enqueue(E e) {
-		// TODO Auto-generated method stub
-		
+		Node<E> aux = new Node (e);
+		if (this.isEmpty()) {
+			this.front=aux;
+		} else {
+			this.rear.setNext(aux);
+		}
+		this.rear=aux;
+		++this.size;
 	}
 
 	@Override
-	public E dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+	public E dequeue() throws EmptyQueueException{
+		E e;
+		if (this.isEmpty()) {
+			throw new EmptyQueueException(Queue.errmsg);
+		} else {
+			e=this.front.getElement();
+			this.front=this.front.getNext();
+			--this.size;
+			if (this.size==0) {
+				this.rear=null;
+			}
+			return e;
+		}
 	}
 
 	@Override
-	public E front() {
-		// TODO Auto-generated method stub
-		return null;
+	public E front() throws EmptyQueueException{
+		if (this.isEmpty()) {
+			throw new EmptyQueueException(Queue.errmsg);
+		} else {
+			return this.front.getElement();
+		}
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.size==0; 
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.size;
 	}
 
 }

@@ -60,7 +60,7 @@ public class StaticQueue<E> implements Queue<E> {
 		E e;
 		int n = this.queue.length;
 		if (this.isEmpty()) {
-			throw new EmptyQueueException("La cola está vacía.");
+			throw new EmptyQueueException(Queue.errmsg);
 		} else {
 			e = this.queue[this.f];
 			this.f = (f+1) % n;
