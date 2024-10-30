@@ -9,7 +9,8 @@ public class Company {
 	public Company() {}
 	
 	public void Comprar(int acciones, int precio) {
-		
+		PaqueteAcciones paquete = new PaqueteAcciones(acciones, precio);
+		System.out.println("Compra exitosa: " + acciones + " acciones a " + precio + " €/acción.");
 	}
 	
 	public void Vender(int acciones, int precio) {
