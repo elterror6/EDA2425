@@ -4,7 +4,7 @@ import java.util.*;
 public class Company {
 	private Queue<PaqueteAcciones> acciones;
 	private int ganancias;
-	private static int gananciastotales;
+
 	
 	public Company() {
 		this.acciones = new PriorityQueue<PaqueteAcciones> ();
@@ -26,12 +26,10 @@ public class Company {
 				 paquete = this.acciones.poll();
 				 this.ganancias += (precio - paquete.getPrecio()) * paquete.getAcciones();
 				 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
-				 this.gananciastotales+=this.ganancias;
 				 numAcciones = numAcciones-paquete.getAcciones();
 			 } else {
 				 paquete=this.acciones.peek();
 				 this.ganancias += (precio-paquete.getPrecio()) * numAcciones;
-				 this.gananciastotales += this.ganancias;
 				 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
 				 paquete.setAcciones(paquete.getAcciones()-numAcciones);
 				 numAcciones = numAcciones - numAcciones;
