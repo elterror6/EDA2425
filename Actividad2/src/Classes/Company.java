@@ -6,15 +6,37 @@ public class Company {
 	private int ganancias;
 	private static int gananciastotales;
 	
-	public Company() {}
-	
-	public void Comprar(int acciones, int precio) {
-		PaqueteAcciones paquete = new PaqueteAcciones(acciones, precio);
-		acciones.add(paquete);
-		System.out.println("Compra exitosa: " + acciones + " acciones a " + precio + " ‚Ç¨/acci√≥n.");
+	public Company() {
+		this.acciones = new PriorityQueue<PaqueteAcciones> ();
+		this.ganancias = 0;
 	}
 	
-	public void Vender(int acciones, int precio) {
-		
+	public void Comprar(int numAcciones, int precio) {
+		PaqueteAcciones paquete = new PaqueteAcciones(numAcciones, precio);
+		this.acciones.add(paquete);
+		System.out.println("Compra exitosa: " + numAcciones + " acciones a " + precio + " Ä/accion.");
+	}
+	
+	public void Vender(int numAcciones, int precio) {
+		PaqueteAcciones paquete;
+		int gananciasventa=0;
+		int acc = numAcciones;
+		 while (numAcciones != 0 && !this.acciones.isEmpty()) {
+			 if (this.acciones.peek().getAcciones()<numAcciones) {
+				 paquete = this.acciones.poll();
+				 this.ganancias += (precio - paquete.getPrecio()) * paquete.getAcciones();
+				 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
+				 this.gananciastotales+=this.ganancias;
+				 numAcciones = numAcciones-paquete.getAcciones();
+			 } else {
+				 paquete=this.acciones.peek();
+				 this.ganancias += (precio-paquete.getPrecio()) * numAcciones;
+				 this.gananciastotales += this.ganancias;
+				 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
+				 paquete.setAcciones(paquete.getAcciones()-numAcciones);
+				 numAcciones = numAcciones - numAcciones;
+			 }
+		 }
+		 System.out.println("Venta exitosa: "+acc+" acciones vendidas, ganancias de la venta "+gananciasventa+"Ä.");
 	}
 }
