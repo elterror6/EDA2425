@@ -40,24 +40,29 @@ public class CarteraAcciones {
 	 * @param numAcciones El numero de acciones que se desea vender
 	 * @param precio El precio por accion
 	 */
-	public void Vender(int numAcciones, int precio) {
+	public void Vender(int numAcciones, int precio) throws EmptyCarteraException {
 		PaqueteAcciones paquete;
 		int gananciasventa=0;
 		int acc = numAcciones;
-		 while (numAcciones != 0 && !this.acciones.isEmpty()) {
-			 if (this.acciones.peek().getAcciones()<numAcciones) {
-				 paquete = this.acciones.poll();
-				 this.ganancias += (precio - paquete.getPrecio()) * paquete.getAcciones();
-				 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
-				 numAcciones = numAcciones-paquete.getAcciones();
-			 } else {
-				 paquete=this.acciones.peek();
-				 this.ganancias += (precio-paquete.getPrecio()) * numAcciones;
-				 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
-				 paquete.setAcciones(paquete.getAcciones()-numAcciones);
-				 numAcciones = numAcciones - numAcciones;
+		if (this.acciones.isEmpty()) {
+			throw new EmptyCarteraException("La cartera no tiene ningún paquete.");
+		} else {
+			while (numAcciones != 0 && !this.acciones.isEmpty()) {
+				 if (this.acciones.peek().getAcciones()<numAcciones) {
+					 paquete = this.acciones.poll();
+					 this.ganancias += (precio - paquete.getPrecio()) * paquete.getAcciones();
+					 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
+					 numAcciones = numAcciones-paquete.getAcciones();
+				 } else {
+					 paquete=this.acciones.peek();
+					 this.ganancias += (precio-paquete.getPrecio()) * numAcciones;
+					 gananciasventa += (precio - paquete.getPrecio()) * paquete.getAcciones();
+					 paquete.setAcciones(paquete.getAcciones()-numAcciones);
+					 numAcciones = numAcciones - numAcciones;
+				 }
 			 }
-		 }
+		}
+		
 		 System.out.println("Venta exitosa: "+acc+" acciones vendidas, ganancias de la venta "+gananciasventa+"€.");
 	}
 	

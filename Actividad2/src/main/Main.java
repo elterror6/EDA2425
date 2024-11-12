@@ -37,8 +37,11 @@ public class Main {
 					ac = input.nextInt();
 					System.out.println("Precio actual de la acción: ");
 					price = input.nextInt();
-					
-					cartera.Vender(ac,price);
+					try {
+						cartera.Vender(ac,price);
+					} catch (EmptyCarteraException e) {
+						System.out.println(e);
+					}
 					
 					break;
 				case 3:
