@@ -1,22 +1,21 @@
 package Classes;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Termino.
+ * La clase que representa un Termino de un Diccionario.
  */
 public class Termino {
 	
-	/** The termino. */
+	/** El termino. */
 	private String termino;
 	
-	/** The definicion. */
+	/** La definicion. */
 	private String definicion;
 
 	/**
-	 * Instantiates a new termino.
+	 * Instancia un nuevo termino.
 	 *
-	 * @param termino the termino
-	 * @param definicion the definicion
+	 * @param termino El termino que se quiere definir.
+	 * @param definicion La definicion del termino.
 	 */
 	public Termino(String termino,String definicion) {
 		this.termino = termino;
@@ -24,7 +23,7 @@ public class Termino {
 	}
 	
 	/**
-	 * Gets the termino.
+	 * Consulta el termino.
 	 *
 	 * @return the termino
 	 */
@@ -33,7 +32,7 @@ public class Termino {
 	}
 	
 	/**
-	 * Gets the definicion.
+	 * Consultar la definicion.
 	 *
 	 * @return the definicion
 	 */
