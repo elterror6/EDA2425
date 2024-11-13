@@ -2,8 +2,18 @@ package Main;
 import Classes.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+// TODO: Auto-generated Javadoc
+/**
+ * La Clase Principal.
+ */
 public class Main {
 
+	/**
+	 * El metodo main.
+	 *
+	 * @param args Los argumentos
+	 */
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		Diccionario d = new Diccionario();
@@ -58,6 +68,10 @@ public class Main {
 		} while (opt != 5);
 		input.close();
 	}
+	
+	/**
+	 * Menu.
+	 */
 	public static void menu() {
 		System.out.println("-----------------------------------------\nMenú principal\n-----------------------------------------\n1) Añadir un termino al diccionario.\n2) Eliminar un término del diccionario.\n3) Consultar un término en el diccionario\n4) Consultar el número de términos del diccionario.\n5) Salir.\n-----------------------------------------\n");
 	}
