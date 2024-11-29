@@ -32,10 +32,17 @@ public class main {
 		System.out.println("Game of Thrones - Relations\n---------------------------");
 		// Enseñamos el número de personajes y el número de relaciones.
 		System.out.println("Número de personajes: "+g.getN()+"\nNúmero de relaciones: "+g.getM());
+		System.out.println("---------------------------");
 		// Enseñar el personaje más conocido.
 		System.out.println("Personaje más conocido: "+mostKnownCharacter(g));
 		// Enseñar el personaje con más interacciones.
 		System.out.println("Personaje con más interacciones: "+mostInterationableCharacter(g));
+		System.out.println("---------------------------");
+		// Enseñar el personaje menos conocido.
+		System.out.println("Personaje más desconocido: "+mostUnknownCharacter(g));
+		// Enseñar el personaje con menos interacciones.
+		System.out.println("Personaje con menos interacciones: "+lessInterationableCharacter(g));
+		
 	}
 	
 	/**
@@ -131,6 +138,11 @@ public class main {
 		// Devuelvo el nombre del último personaje de la pila.
 		return sc.pop();
 	}
+	/**
+	 * Comprueba cuál es el personaje con más interacciones del grafo.
+	 * 
+	 * @return El nombre del personaje con más interacciones del grafo.
+	 */
 	public static String mostInterationableCharacter (Graph<String,Weight> g) {
 		// Creo los iteradores correspondientes.
 		Iterator<Vertex<String>> itc = g.getVertices();
@@ -155,7 +167,7 @@ public class main {
 			while (itr.hasNext()) {
 				// ... paso al siguiente ...
 				Edge<Weight> ed = itr.next();
-				// ... el contador se aumenta en 1.
+				// ... el contador se aumenta en el peso de la interacción.
 				counter+=ed.getElement().getWeight();
 			}
 			// Si la pila de pesos esta vacía ...
@@ -165,6 +177,100 @@ public class main {
 				sc.push(character.getElement());
 			// si no, si el último valor es menor que las aristas contadas ...
 			} else if (si.peek() <= counter) {
+				// ... introduzco el valor en la pila de pesos y en la de nombres.
+				si.push(counter);
+				sc.push(character.getElement());
+			}
+		}
+		// Devuelvo el nombre del último personaje de la pila.
+		return sc.pop();
+	}
+	/**
+	 * Comprueba cuál es el personaje con menos relaciones del grafo.
+	 * 
+	 * @return El nombre del personaje con menos relaciones del grafo.
+	 */
+	public static String mostUnknownCharacter (Graph<String,Weight> g) {
+		// Creo los iteradores correspondientes.
+		Iterator<Vertex<String>> itc = g.getVertices();
+		Iterator<Edge<Weight>> itr;
+		// Contador.
+		int counter;
+		// Nombre del personaje.
+		Vertex<String> character;
+		// Pilas para meter al siguiente con más relaciones
+		Stack<String> sc = new Stack<>();
+		Stack<Integer> si = new Stack<>();
+		
+		// Mientras siga habiendo vertices ...
+		while (itc.hasNext()) {
+			// ... igualo contador a 0 ...
+			counter = 0;
+			// ... consigo su nombre ...
+			character = itc.next();
+			// ... y creo un iterador de sus aristas.
+			itr = g.incidentEdges(character);
+			// Mientras siga teniendo aristas ...
+			while (itr.hasNext()) {
+				// ... paso al siguiente ...
+				itr.next();
+				// ... el contador se aumenta en 1.
+				++counter;
+			}
+			// Si la pila de pesos esta vacía ...
+			if (si.isEmpty()) {
+				// ... introduzco el valor en la pila de pesos y en la de nombres, ...
+				si.push(counter);
+				sc.push(character.getElement());
+			// si no, si el último valor es mayor que las aristas contadas ...
+			} else if (si.peek() >= counter) {
+				// ... introduzco el valor en la pila de pesos y en la de nombres.
+				si.push(counter);
+				sc.push(character.getElement());
+			}
+		}
+		// Devuelvo el nombre del último personaje de la pila.
+		return sc.pop();
+	}
+	/**
+	 * Comprueba cuál es el personaje con menos interacciones del grafo.
+	 * 
+	 * @return El nombre del personaje con más relaciones del grafo.
+	 */
+	public static String lessInterationableCharacter (Graph<String,Weight> g) {
+		// Creo los iteradores correspondientes.
+		Iterator<Vertex<String>> itc = g.getVertices();
+		Iterator<Edge<Weight>> itr;
+		// Contador.
+		int counter;
+		// Nombre del personaje.
+		Vertex<String> character;
+		// Pilas para meter al siguiente con más relaciones
+		Stack<String> sc = new Stack<>();
+		Stack<Integer> si = new Stack<>();
+		
+		// Mientras siga habiendo vertices ...
+		while (itc.hasNext()) {
+			// ... igualo contador a 0 ...
+			counter = 0;
+			// ... consigo su nombre ...
+			character = itc.next();
+			// ... y creo un iterador de sus aristas.
+			itr = g.incidentEdges(character);
+			// Mientras siga teniendo aristas ...
+			while (itr.hasNext()) {
+				// ... paso al siguiente ...
+				Edge<Weight> ed = itr.next();
+				// ... el contador se aumenta en el peso de la interacción.
+				counter+=ed.getElement().getWeight();
+			}
+			// Si la pila de pesos esta vacía ...
+			if (si.isEmpty()) {
+				// ... introduzco el valor en la pila de pesos y en la de nombres, ...
+				si.push(counter);
+				sc.push(character.getElement());
+			// si no, si el último valor es mayor que las aristas contadas ...
+			} else if (si.peek() >= counter) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres.
 				si.push(counter);
 				sc.push(character.getElement());
