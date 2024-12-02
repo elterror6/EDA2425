@@ -8,6 +8,6 @@
   <h2>Descripción</h2>
   <p>En este repositorio existen las siguientes actividades:</p>
   <ul>
-    <li><b><a href="https://github.com/elterror6/EDA2425/tree/main/Stack">Actividad 1</a>:</b></li>
+    <li><b><a href="https://github.com/elterror6/EDA2425/tree/main/Stack">Actividad 1</a>:</b> Utilizando una pila detectar si una cadena de texto dada es un <a href="https://es.wikipedia.org/wiki/Palíndromo">palíndromo</a>. Más información: <a href="https://es.wikipedia.org/wiki/Palíndromo">https://es.wikipedia.org/wiki/Palíndromo</a></li>
   </ul>
 </p>
