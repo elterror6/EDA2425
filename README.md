@@ -1,1 +1,1 @@
-![uclm_logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.uclm.es%2Ftoledo%2Ffcsociales&psig=AOvVaw0rk86aIobxTCIxGciXtKYY&ust=1733224302240000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCPjen5iIoDFQAAAAAdAAAAABAE)
+![uclm_logo](https://upload.wikimedia.org/wikipedia/commons/f/f1/LogoUCLM.jpg)
