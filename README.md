@@ -15,7 +15,7 @@
   </ul>
 </p>
 <p>
-  <h2>Informacón Adicional</h2>
+  <h2>Información dicional</h2>
   <p>También este repositorio contiene las siguientes carpetas:</p>
   <ul>
     <li><b><a href="https://github.com/elterror6/EDA2425/tree/main/JARFILES">Archivos .jar</a></b>: Archivos .jar de las actividades anteriormente descritas.</li>
