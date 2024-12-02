@@ -14,3 +14,10 @@
     <li><b><a href="https://github.com/elterror6/EDA2425/tree/main/ActividadGOT">Actividad 4</a>:</b> Utilizando la estructura de grafos, ver las relaciones entre personajes del libro "Tormenta de Espadas" de George R. R. Martin, tiene que devolver el nombre del personaje más conocido, el personaje con más interacciones, el personaje menos conocido y el personaje con menos interacciones. Luego tendrá que encontrar el camino más corto entre dos personajes dados y la secuencia de personajes que unen dos personajes. (En desarrollo)</li>
   </ul>
 </p>
+<p>
+  <h2>Informacón Adicional</h2>
+  <p>También este repositorio contiene las siguientes carpetas:</p>
+  <ul>
+    <li><b><a href="https://github.com/elterror6/EDA2425/tree/main/JARFILES">Archivos .jar</a></b>: Archivos .jar de las actividades anteriormente descritas.</li>
+  </ul>
+</p>
