@@ -356,19 +356,23 @@ public class main {
 		    }
 		    return v.getElement().getDistance();
 	 }
-	   public static void DFS(Graph g, Vertex<DecoratedElement> v) {
-        v.getElement().setVisited(true); // Previsit
-        System.out.println("Visitando vértice: " + v);
+public static Stack<Vertex<DecoratedElement>> DFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> v) {
+    Stack<Vertex<DecoratedElement<String>>> stack = new Stack<>();
+    v.getElement().setVisited(true); 
+    stack.push(v);
+    System.out.println("Visitando vértice: " + v.getElement().getElement());
+    
+    Iterator<Edge<Weight<String>>> it = g.incidentEdges(v);
+    while (it.hasNext()) {
+        Edge<Weight<String>> e = it.next();
+        Vertex<DecoratedElement<String>> u = g.opposite(v, e);
 
-        // Iterar sobre aristas incidentes
-        Iterator<Edge> it = g.incidentEdges(v).iterator();
-        while (it.hasNext()) {
-            Edge e = it.next();
-            Vertex<DecoratedElement> u = (Vertex<DecoratedElement>) e.opposite(v);
-
-            if (!u.getElement().getVisited()) {
-                u.getElement().setParent(v.getElement()); // Opcional: Configurar el nodo padre
-                DFS(g, u); // Llamada recursiva
-            }
+        if (!u.getElement().getVisited()) {
+            u.getElement().setParent(v.getElement());
+            stack.addAll(DFS(g, u));
         }
+    }
+
+    return stack;
+}
 }
