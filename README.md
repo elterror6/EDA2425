@@ -19,5 +19,6 @@
   <p>También este repositorio contiene las siguientes carpetas:</p>
   <ul>
     <li><b><a href="https://github.com/elterror6/EDA2425/tree/main/JARFILES">Archivos .jar</a></b>: Archivos .jar de las actividades anteriormente descritas.</li>
+    <li><b><a href="https://github.com/elterror6/EDA2425/tree/main/Queue">Cola</a>:</b> El código de una cola con la implementación estática y dinámica de la memoria.</li>
   </ul>
 </p>
