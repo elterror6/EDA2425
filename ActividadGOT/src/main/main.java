@@ -360,7 +360,6 @@ public static Stack<Vertex<DecoratedElement>> DFS(Graph<DecoratedElement<String>
     Stack<Vertex<DecoratedElement<String>>> stack = new Stack<>();
     v.getElement().setVisited(true); 
     stack.push(v);
-    System.out.println("Visitando vértice: " + v.getElement().getElement());
     
     Iterator<Edge<Weight<String>>> it = g.incidentEdges(v);
     while (it.hasNext()) {
