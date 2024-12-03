@@ -19,7 +19,7 @@ import java.util.Stack;
 /**
  * La Clase principal.
  * 
- * @author Daniel DÌaz GarcÌa
+ * @author Daniel D√≠az Garc√≠a
  * @author Diego Repullo Higueruela
  */
 public class main {
@@ -39,20 +39,20 @@ public class main {
 		// Construimos el grafo.
 		constructGraph(g);
 		System.out.println("Game of Thrones - Relations\n---------------------------");
-		// EnseÒamos el n˙mero de personajes y el n˙mero de relaciones.
-		System.out.println("N˙mero de personajes: "+g.getN()+"\nN˙mero de relaciones: "+g.getM());
+		// Ense√±amos el n√∫mero de personajes y el n√∫mero de relaciones.
+		System.out.println("N√∫mero de personajes: "+g.getN()+"\nN√∫mero de relaciones: "+g.getM());
 		System.out.println("---------------------------");
-		// EnseÒar el personaje m·s conocido.
-		System.out.println("Personajes m·s conocido: "+mostKnownCharacter(g));
-		// EnseÒar el personaje con m·s interacciones.
-		System.out.println("Personajes con m·s interacciones: "+mostInterationableCharacter(g));
+		// Ense√±ar el personaje m√°s conocido.
+		System.out.println("Personajes m√°s conocido: "+mostKnownCharacter(g));
+		// Ense√±ar el personaje con m√°s interacciones.
+		System.out.println("Personajes con m√°s interacciones: "+mostInterationableCharacter(g));
 		System.out.println("---------------------------");
-		// EnseÒar el personaje menos conocido.
-		System.out.println("Personaje m·s desconocido: "+mostUnknownCharacter(g));
-		// EnseÒar el personaje con menos interacciones.
+		// Ense√±ar el personaje menos conocido.
+		System.out.println("Personaje m√°s desconocido: "+mostUnknownCharacter(g));
+		// Ense√±ar el personaje con menos interacciones.
 		System.out.println("Personaje con menos interacciones: "+lessInterationableCharacter(g));
 		System.out.println("---------------------------");
-		System.out.println("1. Camino m·s corto entre dos personajes.");
+		System.out.println("1. Camino m√°s corto entre dos personajes.");
 		System.out.println("2. Secuencia de personajes entre dos personajes.");
 		opt = input.nextInt();
 		switch (opt) {
@@ -72,16 +72,16 @@ public class main {
 			case 2:
 				break;
 			default:
-				System.out.println("ERR: OpciÛn no v·lida.");
+				System.out.println("ERR: Opci√≥n no v√°lida.");
 		}
 		input.close();
 		
 	}
 	
 	/**
-	 * Construye un grafo de Nodos tipo cadena y aristas con tipo entero a travÈs de un archivo csv. 
+	 * Construye un grafo de Nodos tipo cadena y aristas con tipo entero a trav√©s de un archivo csv. 
 	 *
-	 * @param g El grafo vacÌo
+	 * @param g El grafo vac√≠o
 	 */
 	public static void constructGraph(Graph<DecoratedElement<String>,Weight<String>> g){
 	    BufferedReader bf = null;
@@ -95,18 +95,18 @@ public class main {
 	    	// Mientras el archivo tenga lineas ...
 	    	bf.readLine();
 	        while ((line = bf.readLine())!=null) {
-	        	// ... tokenizo el contenido de la lÌnea.
+	        	// ... tokenizo el contenido de la l√≠nea.
 	        	StringTokenizer tokens = new StringTokenizer(line, ",");
-	        	// Mientras el tokenizador tenga m·s tokens ...
+	        	// Mientras el tokenizador tenga m√°s tokens ...
 	        	while(tokens.hasMoreTokens()){
 	        		// ... guardo los tokens en distintas variables.
-	        		// v1 es el primer nombre de la lÌnea.
+	        		// v1 es el primer nombre de la l√≠nea.
 	        		String e1 = tokens.nextToken();
 	        		DecoratedElement<String> v1 = new DecoratedElement<String>(e1.hashCode()+"",e1);
-	        		// v2 es el segundo nombre de la lÌnea.
+	        		// v2 es el segundo nombre de la l√≠nea.
 	        		String e2 = tokens.nextToken();
 	        		DecoratedElement<String> v2 = new DecoratedElement<String>(e2.hashCode()+"",e2);
-	        		// p es el peso de la relaciÛn entre los personajes.
+	        		// p es el peso de la relaci√≥n entre los personajes.
 	        		Weight<String> p = new Weight<String>(v1,v2,Integer.parseInt(tokens.nextToken()));
 	        		// Si v1 no existe ...
 	        		if (g.getVertex(v1.getElement())==null) {
@@ -118,7 +118,7 @@ public class main {
 	        			// inserto el nodo v2 en el grafo.
 	        			g.insertVertex(v2);
 	        		}
-	        		// Por ˙ltimo, inserto la arista de uniÛn entre los vÈrtices.
+	        		// Por √∫ltimo, inserto la arista de uni√≥n entre los v√©rtices.
 	        		g.insertEdge(v1, v2, p);
 	        	}
 	        }
@@ -127,9 +127,9 @@ public class main {
 	    }
 	}
 	/**
-	 * Mira cu·l es el personaje con m·s relaciones del grafo.
+	 * Mira cu√°l es el personaje con m√°s relaciones del grafo.
 	 * 
-	 * @return El nombre del personaje con m·s relaciones del grafo.
+	 * @return El nombre del personaje con m√°s relaciones del grafo.
 	 */
 	public static Stack<String> mostKnownCharacter(Graph<DecoratedElement<String>,Weight<String>> g) {
 		// Creo los iteradores correspondientes.
@@ -139,7 +139,7 @@ public class main {
 		int counter;
 		// Nombre del personaje.
 		Vertex<DecoratedElement<String>> character;
-		// Pilas para meter al siguiente con m·s relaciones
+		// Pilas para meter al siguiente con m√°s relaciones
 		Stack<String> sc = new Stack<>();
 		int max=0;
 		
@@ -158,7 +158,7 @@ public class main {
 				// ... el contador se aumenta en 1.
 				++counter;
 			}
-			// Si la pila de pesos esta vacÌa ...
+			// Si la pila de pesos esta vac√≠a ...
 			if (counter > max) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres, ...
 				max = counter;
@@ -166,19 +166,19 @@ public class main {
 					sc.pop();
 				}
 				sc.push(character.getElement().getElement());
-			// si no, si el ˙ltimo valor es menor que las aristas contadas ...
+			// si no, si el √∫ltimo valor es menor que las aristas contadas ...
 			} else if (counter == max) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres.
 				sc.push(character.getElement().getElement());
 			}
 		}
-		// Devuelvo el nombre del ˙ltimo personaje de la pila.
+		// Devuelvo el nombre del √∫ltimo personaje de la pila.
 		return sc;
 	}
 	/**
-	 * Comprueba cu·l es el personaje con m·s interacciones del grafo.
+	 * Comprueba cu√°l es el personaje con m√°s interacciones del grafo.
 	 * 
-	 * @return El nombre del personaje con m·s interacciones del grafo.
+	 * @return El nombre del personaje con m√°s interacciones del grafo.
 	 */
 	public static Stack<String> mostInterationableCharacter (Graph<DecoratedElement<String>,Weight<String>> g) {
 		// Creo los iteradores correspondientes.
@@ -188,7 +188,7 @@ public class main {
 		int counter;
 		// Nombre del personaje.
 		Vertex<DecoratedElement<String>> character;
-		// Pilas para meter al siguiente con m·s relaciones
+		// Pilas para meter al siguiente con m√°s relaciones
 		Stack<String> sc = new Stack<>();
 		int max = 0;
 		
@@ -204,10 +204,10 @@ public class main {
 			while (itr.hasNext()) {
 				// ... paso al siguiente ...
 				Edge<Weight<String>> ed = itr.next();
-				// ... el contador se aumenta en el peso de la interacciÛn.
+				// ... el contador se aumenta en el peso de la interacci√≥n.
 				counter+=ed.getElement().getWeight();
 			}
-			// Si la pila de pesos esta vacÌa ...
+			// Si la pila de pesos esta vac√≠a ...
 			if (counter > max) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres, ...
 				max = counter;
@@ -215,17 +215,17 @@ public class main {
 					sc.pop();
 				}
 				sc.push(character.getElement().getElement() );
-			// si no, si el ˙ltimo valor es menor que las aristas contadas ...
+			// si no, si el √∫ltimo valor es menor que las aristas contadas ...
 			} else if (counter == max) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres.
 				sc.push(character.getElement().getElement());
 			}
 		}
-		// Devuelvo el nombre del ˙ltimo personaje de la pila.
+		// Devuelvo el nombre del √∫ltimo personaje de la pila.
 		return sc;
 	}
 	/**
-	 * Comprueba cu·l es el personaje con menos relaciones del grafo.
+	 * Comprueba cu√°l es el personaje con menos relaciones del grafo.
 	 * 
 	 * @return El nombre del personaje con menos relaciones del grafo.
 	 */
@@ -237,7 +237,7 @@ public class main {
 		int counter;
 		// Nombre del personaje.
 		Vertex<DecoratedElement<String>> character;
-		// Pilas para meter al siguiente con m·s relaciones
+		// Pilas para meter al siguiente con m√°s relaciones
 		Stack<String> sc = new Stack<>();
 		int min = 0;
 		
@@ -256,7 +256,7 @@ public class main {
 				// ... el contador se aumenta en 1.
 				++counter;
 			}
-			// Si la pila de pesos esta vacÌa ...
+			// Si la pila de pesos esta vac√≠a ...
 			if (counter < min || min == 0) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres, ...
 				min = counter;
@@ -264,19 +264,19 @@ public class main {
 					sc.pop();
 				}
 				sc.push(character.getElement().getElement());
-			// si no, si el ˙ltimo valor es mayor que las aristas contadas ...
+			// si no, si el √∫ltimo valor es mayor que las aristas contadas ...
 			} else if (counter == min) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres.
 				sc.push(character.getElement().getElement());
 			}
 		}
-		// Devuelvo el nombre del ˙ltimo personaje de la pila.
+		// Devuelvo el nombre del √∫ltimo personaje de la pila.
 		return sc;
 	}
 	/**
-	 * Comprueba cu·l es el personaje con menos interacciones del grafo.
+	 * Comprueba cu√°l es el personaje con menos interacciones del grafo.
 	 * 
-	 * @return El nombre del personaje con m·s relaciones del grafo.
+	 * @return El nombre del personaje con m√°s relaciones del grafo.
 	 */
 	public static Stack<String> lessInterationableCharacter (Graph<DecoratedElement<String>,Weight<String>> g) {
 		// Creo los iteradores correspondientes.
@@ -286,7 +286,7 @@ public class main {
 		int counter;
 		// Nombre del personaje.
 		Vertex<DecoratedElement<String>> character;
-		// Pilas para meter al siguiente con m·s relaciones
+		// Pilas para meter al siguiente con m√°s relaciones
 		Stack<String> sc = new Stack<>();
 		int min = 0;
 		
@@ -302,10 +302,10 @@ public class main {
 			while (itr.hasNext()) {
 				// ... paso al siguiente ...
 				Edge<Weight<String>> ed = itr.next();
-				// ... el contador se aumenta en el peso de la interacciÛn.
+				// ... el contador se aumenta en el peso de la interacci√≥n.
 				counter+=ed.getElement().getWeight();
 			}
-			// Si la pila de pesos esta vacÌa ...
+			// Si la pila de pesos esta vac√≠a ...
 			if (counter < min || min == 0) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres, ...
 				min = counter;
@@ -313,19 +313,19 @@ public class main {
 					sc.pop();
 				}
 				sc.push(character.getElement().getElement());
-			// si no, si el ˙ltimo valor es mayor que las aristas contadas ...
+			// si no, si el √∫ltimo valor es mayor que las aristas contadas ...
 			} else if (counter == min) {
 				// ... introduzco el valor en la pila de pesos y en la de nombres.
 				sc.push(character.getElement().getElement());
 			}
 		}
-		// Devuelvo el nombre del ˙ltimo personaje de la pila.
+		// Devuelvo el nombre del √∫ltimo personaje de la pila.
 		return sc;
 	}
 	/**
-	 * Recorrido de un grafo g de elementos decorados en BFS entre dos vÈrtices.
+	 * Recorrido de un grafo g de elementos decorados en BFS entre dos v√©rtices.
 	 * 
-	 * @return La distancia que existe entre los dos vÈrtices dados.
+	 * @return La distancia que existe entre los dos v√©rtices dados.
 	 */
 	 public static int BFS (Graph<DecoratedElement<String>,Weight<String>> g, Vertex<DecoratedElement<String>> source, Vertex<DecoratedElement<String>> destination) {
 		 	Queue<Vertex<DecoratedElement<String>>> q = new LinkedList<>();
@@ -356,5 +356,19 @@ public class main {
 		    }
 		    return v.getElement().getDistance();
 	 }
+	   public static void DFS(Graph g, Vertex<DecoratedElement> v) {
+        v.getElement().setVisited(true); // Previsit
+        System.out.println("Visitando v√©rtice: " + v);
 
+        // Iterar sobre aristas incidentes
+        Iterator<Edge> it = g.incidentEdges(v).iterator();
+        while (it.hasNext()) {
+            Edge e = it.next();
+            Vertex<DecoratedElement> u = (Vertex<DecoratedElement>) e.opposite(v);
+
+            if (!u.getElement().getVisited()) {
+                u.getElement().setParent(v.getElement()); // Opcional: Configurar el nodo padre
+                DFS(g, u); // Llamada recursiva
+            }
+        }
 }
