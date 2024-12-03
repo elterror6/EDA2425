@@ -33,7 +33,7 @@ public class main {
 	 * @param args los argumentos
 	 */
 	public static void main(String[] args) {
-		Graph<DecoratedElement<String>,Weight<String>> g = new TreeMapGraph();
+		Graph<DecoratedElement<String>,Weight<String>> g = new TreeMapGraph<>();
 		Scanner input = new Scanner(System.in);
 		int opt;
 		// Construimos el grafo.
