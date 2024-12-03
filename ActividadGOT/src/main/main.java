@@ -18,6 +18,9 @@ import java.util.Stack;
 
 /**
  * La Clase principal.
+ * 
+ * @author Daniel Díaz García
+ * @author Diego Repullo Higueruela
  */
 public class main {
 	/**
@@ -71,6 +74,7 @@ public class main {
 			default:
 				System.out.println("ERR: Opción no válida.");
 		}
+		input.close();
 		
 	}
 	
@@ -311,7 +315,9 @@ public class main {
 		return sc.pop();
 	}
 	/**
+	 * Recorrido de un grafo g de elementos decorados en BFS entre dos vértices.
 	 * 
+	 * @return La distancia que existe entre los dos vértices dados.
 	 */
 	 public static int BFS (Graph<DecoratedElement<String>,Weight<String>> g, Vertex<DecoratedElement<String>> source, Vertex<DecoratedElement<String>> destination) {
 		 	Queue<Vertex<DecoratedElement<String>>> q = new LinkedList<>();
