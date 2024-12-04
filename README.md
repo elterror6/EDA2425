@@ -1,5 +1,5 @@
 <p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/LogoUCLM.jpg" alt="uclm_logo" witdh=50 height=125>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/LogoUCLM.jpg" alt="uclm_logo" witdh=25 height=100>
   <h1>REPOSITORIO DE PRÁCTICAS DE ESTRUCTURA DE DATOS</h1>
 </p>
 <p>
