@@ -356,7 +356,7 @@ public class main {
 		    }
 		    return v.getElement().getDistance();
 	 }
-public static Stack<Vertex<DecoratedElement>> DFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> v) {
+public static Stack<Vertex<DecoratedElement<String>>> DFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> v) {
     Stack<Vertex<DecoratedElement<String>>> stack = new Stack<>();
     v.getElement().setVisited(true); 
     stack.push(v);
