@@ -33,6 +33,7 @@ public class main {
 	 * @param args los argumentos
 	 */
 	public static void main(String[] args) {
+		Stack<String> stack = new Stack<>();
 		Graph<DecoratedElement<String>,Weight<String>> g = new TreeMapGraph<>();
 		Scanner input = new Scanner(System.in);
 		int opt;
@@ -70,6 +71,17 @@ public class main {
 				System.out.println("Existen entre "+source+" y "+destination+" una distancia de "+ d1+".");
 				break;
 			case 2:
+				String source1, destination1;
+				Vertex<DecoratedElement<String>> s1, d2;
+				input.nextLine();
+				System.out.println("Elige un personaje de inicio: ");
+				source1 = input.nextLine();
+				System.out.println("Elige un personaje de destino: ");
+				destination1 = input.nextLine();
+				s1 = g.getVertex(source1.hashCode()+"");
+				d2 = g.getVertex(destination1.hashCode()+"");
+				DFS(g, s1, d2, stack);
+				System.out.println(stack);
 				break;
 			default:
 				System.out.println("ERR: Opción no válida.");
@@ -356,22 +368,21 @@ public class main {
 		    }
 		    return v.getElement().getDistance();
 	 }
-public static Stack<Vertex<DecoratedElement<String>>> DFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> v) {
-    Stack<Vertex<DecoratedElement<String>>> stack = new Stack<>();
-    v.getElement().setVisited(true); 
-    stack.push(v);
+public static void DFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> source, Vertex<DecoratedElement<String>> destination, Stack<String> s) {
+    source.getElement().setVisited(true); 
+    s.push(source.getElement().toString());
     
-    Iterator<Edge<Weight<String>>> it = g.incidentEdges(v);
+    Iterator<Edge<Weight<String>>> it = g.incidentEdges(source);
     while (it.hasNext()) {
         Edge<Weight<String>> e = it.next();
-        Vertex<DecoratedElement<String>> u = g.opposite(v, e);
+        Vertex<DecoratedElement<String>> u = g.opposite(source, e);
 
-        if (!u.getElement().getVisited()) {
-            u.getElement().setParent(v.getElement());
-            stack.addAll(DFS(g, u));
+        if (!u.getElement().getVisited() && !u.getElement().equals(destination.getElement()) ) {
+            u.getElement().setParent(source.getElement());
+           DFS(g, u, destination, s);
+           return;
         }
     }
+}
+}
 
-    return stack;
-}
-}
