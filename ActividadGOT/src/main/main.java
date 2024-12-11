@@ -386,7 +386,7 @@ public class main {
 			Vertex<DecoratedElement<String>> destination) {
 		Vertex<DecoratedElement<String>> u = null;
 		Edge<Weight<String>> e = null;
-		
+		// Previsit
 		boolean found = false;
 		if (source.getElement().equals(destination.getElement())) {
 			System.out.print(source.getElement());
@@ -403,7 +403,7 @@ public class main {
 				found = DFS(g, u, destination);
 			}
 		}
-		
+		// Postvisit
 		if (found) {
 			System.out.print(" -- "+source.getElement());
 			return true;
