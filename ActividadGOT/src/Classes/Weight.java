@@ -43,10 +43,7 @@ public class Weight <E> implements Element {
 	
 	/**
 	 * A string. Este método se utiliza para generar el ID de esta clase.
-	 *
-	 * @param source El primer vértice de unión de la arista
-	 * @param destination El segundo vértice de unión de la arista
-	 * @return La cadena de texto generada de la suma de los códigos hash de los parámetros dados.
+	 * @return ID de la clase
 	 */
 	@Override
 	public String toString () {

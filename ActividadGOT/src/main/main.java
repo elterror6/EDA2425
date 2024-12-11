@@ -26,7 +26,7 @@ public class main {
 	/**
 	 * La ruta donde esta el archivo .csv.
 	 */
-	private final static String PATH = "src/stormofswords.csv";
+	private final static String PATH = "src/main/stormofswords.csv";
 
 	/**
 	 * El metodo principal.
@@ -93,8 +93,8 @@ public class main {
 	/**
 	 * Construye un grafo de Nodos tipo cadena y aristas con tipo entero a trav√©s
 	 * de un archivo csv.
-	 *
-	 * @param g El grafo vac√≠o
+	 * 
+	 * @param g El grafo vacÌo
 	 */
 	public static void constructGraph(Graph<DecoratedElement<String>, Weight<String>> g) {
 		BufferedReader bf = null;
@@ -141,9 +141,9 @@ public class main {
 	}
 
 	/**
-	 * Mira cu√°l es el personaje con m√°s relaciones del grafo.
-	 * 
-	 * @return El nombre del personaje con m√°s relaciones del grafo.
+	 * Mira cu·l es el personaje con m·s relaciones del grafo.
+	 * @param g El grafo
+	 * @return Pila con los nombres de los personajes m·s conocidos.
 	 */
 	public static Stack<String> mostKnownCharacter(Graph<DecoratedElement<String>, Weight<String>> g) {
 		// Creo los iteradores correspondientes.
@@ -191,9 +191,9 @@ public class main {
 	}
 
 	/**
-	 * Comprueba cu√°l es el personaje con m√°s interacciones del grafo.
-	 * 
-	 * @return El nombre del personaje con m√°s interacciones del grafo.
+	 * Comprueba cu·l es el personaje con m·s interacciones del grafo.
+	 * @param g El grafo
+	 * @return Pila con los nombres de los personajes m·s interaccionados
 	 */
 	public static Stack<String> mostInterationableCharacter(Graph<DecoratedElement<String>, Weight<String>> g) {
 		// Creo los iteradores correspondientes.
@@ -241,9 +241,9 @@ public class main {
 	}
 
 	/**
-	 * Comprueba cu√°l es el personaje con menos relaciones del grafo.
-	 * 
-	 * @return El nombre del personaje con menos relaciones del grafo.
+	 * Comprueba cu·l es el personaje con menos relaciones del grafo.
+	 * @param g El grafo
+	 * @return Pila con los personajes menos conocidos.
 	 */
 	public static Stack<String> mostUnknownCharacter(Graph<DecoratedElement<String>, Weight<String>> g) {
 		// Creo los iteradores correspondientes.
@@ -291,9 +291,9 @@ public class main {
 	}
 
 	/**
-	 * Comprueba cu√°l es el personaje con menos interacciones del grafo.
-	 * 
-	 * @return El nombre del personaje con m√°s relaciones del grafo.
+	 * Comprueba cu·l es el personaje con menos interacciones del grafo.
+	 * @param g El grafo
+	 * @return Pila con los nombres de los personajes con menos interacciones.
 	 */
 	public static Stack<String> lessInterationableCharacter(Graph<DecoratedElement<String>, Weight<String>> g) {
 		// Creo los iteradores correspondientes.
@@ -342,8 +342,10 @@ public class main {
 
 	/**
 	 * Recorrido de un grafo g de elementos decorados en BFS entre dos v√©rtices.
-	 * 
-	 * @return La distancia que existe entre los dos v√©rtices dados.
+	 * @param g El grafo
+	 * @param source El personaje de empiece
+	 * @param destination El personaje de destino
+	 * @return La distancia que existe entre los dos vÈrtices dados.
 	 */
 	public static int BFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> source,
 			Vertex<DecoratedElement<String>> destination) {
