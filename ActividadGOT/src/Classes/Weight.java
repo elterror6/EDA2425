@@ -2,7 +2,6 @@ package Classes;
 
 import graphsDSESIUCLM.Element;
 
-// TODO: Auto-generated Javadoc
 /**
  * La Clase Weight. Representa una arista con un peso entero.
  *
