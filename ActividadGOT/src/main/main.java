@@ -81,10 +81,23 @@ public class main {
 			destination1 = input.nextLine();
 			s1 = g.getVertex(source1.hashCode() + "");
 			d2 = g.getVertex(destination1.hashCode() + "");
-			DFS(g, s1, d2);
+			boolean ctr = DFS(g, s1, d2, stack);
+			if (!ctr) {
+				System.out.println(stack);
+				System.out.println("Camino no encontrado.");
+			} else {
+				while (!stack.isEmpty()) {
+					if (stack.size()>1) {
+						System.out.print(stack.pop() + " -- ");
+					} else {
+						System.out.println(stack.pop());
+					}
+					
+				}
+			}
 			break;
 		default:
-			System.out.println("ERR: Opci√≥n no v√°lida.");
+			System.out.println("ERR: OpciÛn no v·lida.");
 		}
 		input.close();
 
@@ -142,6 +155,7 @@ public class main {
 
 	/**
 	 * Mira cu·l es el personaje con m·s relaciones del grafo.
+	 * 
 	 * @param g El grafo
 	 * @return Pila con los nombres de los personajes m·s conocidos.
 	 */
@@ -192,6 +206,7 @@ public class main {
 
 	/**
 	 * Comprueba cu·l es el personaje con m·s interacciones del grafo.
+	 * 
 	 * @param g El grafo
 	 * @return Pila con los nombres de los personajes m·s interaccionados
 	 */
@@ -242,6 +257,7 @@ public class main {
 
 	/**
 	 * Comprueba cu·l es el personaje con menos relaciones del grafo.
+	 * 
 	 * @param g El grafo
 	 * @return Pila con los personajes menos conocidos.
 	 */
@@ -292,6 +308,7 @@ public class main {
 
 	/**
 	 * Comprueba cu·l es el personaje con menos interacciones del grafo.
+	 * 
 	 * @param g El grafo
 	 * @return Pila con los nombres de los personajes con menos interacciones.
 	 */
@@ -342,8 +359,9 @@ public class main {
 
 	/**
 	 * Recorrido de un grafo g de elementos decorados en BFS entre dos v√©rtices.
-	 * @param g El grafo
-	 * @param source El personaje de empiece
+	 * 
+	 * @param g           El grafo
+	 * @param source      El personaje de empiece
 	 * @param destination El personaje de destino
 	 * @return La distancia que existe entre los dos vÈrtices dados.
 	 */
@@ -377,40 +395,67 @@ public class main {
 		}
 		return v.getElement().getDistance();
 	}
+
 	/**
-	 * MÈtodo que recorre en DFS el grafo para saber la secuencia de personajes que unen dos personajes dados. Devuelve un valor booleano para en el backtracking saber si es el camino correcto.
-	 * @param g El grafo
-	 * @param source El personaje de empiece
+	 * MÈtodo que recorre en DFS el grafo para saber la secuencia de personajes que
+	 * unen dos personajes dados. Devuelve un valor booleano para en el backtracking
+	 * saber si es el camino correcto.
+	 * 
+	 * @param g           El grafo
+	 * @param source      El personaje de empiece
 	 * @param destination El personaje de destino
 	 * @return Si encuentra el personaje de destino devuelve true, si no false
 	 */
-	public static boolean DFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> source,
-			Vertex<DecoratedElement<String>> destination) {
+	public static boolean DFS(Graph<DecoratedElement<String>, Weight<String>> g,
+			Vertex<DecoratedElement<String>> source, Vertex<DecoratedElement<String>> destination, Stack<String> s) {
 		Vertex<DecoratedElement<String>> u = null;
 		Edge<Weight<String>> e = null;
 		// Previsit
 		boolean found = false;
 		if (source.getElement().equals(destination.getElement())) {
-			System.out.print(source.getElement());
+			s.push(source.getElement().getElement());
 			return true;
 		}
-		
+
 		source.getElement().setVisited(true);
-		Iterator<Edge<Weight<String>>> it = g.incidentEdges(source);
-		while (it.hasNext() && !found) {
-			e = it.next();
-			u = g.opposite(source, e);
-			if (!u.getElement().getVisited()) {
-				u.getElement().setParent(source.getElement());
-				found = DFS(g, u, destination);
-			}
+
+		e = greatherEdge(source, g);
+		u = g.opposite(source, e);
+		if (!u.getElement().getVisited()) {
+			u.getElement().setParent(source.getElement());
+			found = DFS(g, u, destination, s);
 		}
+
 		// Postvisit
 		if (found) {
-			System.out.print(" -- "+source.getElement());
+			s.push(source.getElement().getElement());
 			return true;
 		} else {
 			return false;
 		}
+
+	}
+
+	/**
+	 * MÈtodo que devuelve arista de mayor peso .
+	 *
+	 * @param v El vertice
+	 * @param g El grafo
+	 * @return Arista de mayor peso de un vertice
+	 */
+	public static Edge<Weight<String>> greatherEdge(Vertex<DecoratedElement<String>> v,
+			Graph<DecoratedElement<String>, Weight<String>> g) {
+		Iterator<Edge<Weight<String>>> iEdge = g.incidentEdges(v);
+		Edge<Weight<String>> edge;
+		Edge<Weight<String>> r = null;
+		while (iEdge.hasNext()) {
+			edge = iEdge.next();
+			if (r == null) {
+				r = edge;
+			} else if (edge.getElement().getWeight() > r.getElement().getWeight() && !g.opposite(v, edge).getElement().getVisited()) {
+				r = edge;
+			}
+		}
+		return r;
 	}
 }
