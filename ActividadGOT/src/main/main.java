@@ -19,7 +19,7 @@ import java.util.Stack;
 /**
  * La Clase principal.
  * 
- * @author Daniel DÃ­az GarcÃ­a
+ * @author Daniel Díaz García
  * @author Diego Repullo Higueruela
  */
 public class main {
@@ -29,7 +29,7 @@ public class main {
 	private final static String PATH = "src/main/stormofswords.csv";
 
 	/**
-	 * El metodo principal.
+	 * El método principal.
 	 *
 	 * @param args los argumentos
 	 */
@@ -37,25 +37,26 @@ public class main {
 		Stack<String> stack = new Stack<>();
 		Graph<DecoratedElement<String>, Weight<String>> g = new TreeMapGraph<>();
 		Scanner input = new Scanner(System.in);
-		int opt;
+		int opt = 0;
 		// Construimos el grafo.
 		constructGraph(g);
 		System.out.println("Game of Thrones - Relations\n---------------------------");
 		// EnseÃ±amos el nÃºmero de personajes y el nÃºmero de relaciones.
-		System.out.println("NÃºmero de personajes: " + g.getN() + "\nNÃºmero de relaciones: " + g.getM());
+		System.out.println("Número de personajes: " + g.getN() + "\nNúmero de relaciones: " + g.getM());
 		System.out.println("---------------------------");
 		// EnseÃ±ar el personaje mÃ¡s conocido.
-		System.out.println("Personajes mÃ¡s conocido: " + mostKnownCharacter(g));
+		System.out.println("Personajes más conocidos: " + mostKnownCharacter(g));
 		// EnseÃ±ar el personaje con mÃ¡s interacciones.
-		System.out.println("Personajes con mÃ¡s interacciones: " + mostInterationableCharacter(g));
+		System.out.println("Personajes con más interacciones: " + mostInterationableCharacter(g));
 		System.out.println("---------------------------");
 		// EnseÃ±ar el personaje menos conocido.
-		System.out.println("Personaje mÃ¡s desconocido: " + mostUnknownCharacter(g));
+		System.out.println("Personajes más desconocidos: " + mostUnknownCharacter(g));
 		// EnseÃ±ar el personaje con menos interacciones.
-		System.out.println("Personaje con menos interacciones: " + lessInterationableCharacter(g));
+		System.out.println("Personajes con menos interacciones: " + lessInterationableCharacter(g));
 		System.out.println("---------------------------");
-		System.out.println("1. Camino mÃ¡s corto entre dos personajes.");
+		System.out.println("1. Camino más corto entre dos personajes.");
 		System.out.println("2. Secuencia de personajes entre dos personajes.");
+		System.out.println("3. Salir");
 		opt = input.nextInt();
 		switch (opt) {
 		case 1:
@@ -68,8 +69,20 @@ public class main {
 			destination = input.nextLine();
 			s = g.getVertex(source.hashCode() + "");
 			d = g.getVertex(destination.hashCode() + "");
-			int d1 = BFS(g, s, d);
-			System.out.println("Existen entre " + source + " y " + destination + " una distancia de " + d1 + ".");
+			boolean noPath = BFS(g, s, d, stack);
+			if (noPath) {
+				System.out.println("No existe un camino.");
+			} else {
+				while (!stack.isEmpty()) {
+					if (stack.size() > 1) {
+						System.out.print(stack.pop() + " -- ");
+					} else {
+						System.out.println(stack.pop());
+					}
+
+				}
+			}
+
 			break;
 		case 2:
 			String source1, destination1;
@@ -87,18 +100,22 @@ public class main {
 				System.out.println("Camino no encontrado.");
 			} else {
 				while (!stack.isEmpty()) {
-					if (stack.size()>1) {
+					if (stack.size() > 1) {
 						System.out.print(stack.pop() + " -- ");
 					} else {
 						System.out.println(stack.pop());
 					}
-					
+
 				}
 			}
+			break;
+		case 3:
+			System.out.println("Goodbye");
 			break;
 		default:
 			System.out.println("ERR: Opción no válida.");
 		}
+
 		input.close();
 
 	}
@@ -358,15 +375,16 @@ public class main {
 	}
 
 	/**
-	 * Recorrido de un grafo g de elementos decorados en BFS entre dos vÃ©rtices.
+	 * Recorrido de un grafo g de elementos decorados en BFS entre dos vértices. El recorrido se guardará en una pila.
 	 * 
 	 * @param g           El grafo
 	 * @param source      El personaje de empiece
 	 * @param destination El personaje de destino
-	 * @return La distancia que existe entre los dos vértices dados.
+	 * @param s			  La pila donde se va a guardar el recorrido
+	 * @return Si ha encontrado el camino devuelve false, si no true
 	 */
-	public static int BFS(Graph<DecoratedElement<String>, Weight<String>> g, Vertex<DecoratedElement<String>> source,
-			Vertex<DecoratedElement<String>> destination) {
+	public static boolean BFS(Graph<DecoratedElement<String>, Weight<String>> g,
+			Vertex<DecoratedElement<String>> source, Vertex<DecoratedElement<String>> destination, Stack<String> s) {
 		Queue<Vertex<DecoratedElement<String>>> q = new LinkedList<>();
 		boolean noEnd = true;
 		Vertex<DecoratedElement<String>> u, v = null;
@@ -377,6 +395,7 @@ public class main {
 		q.offer(source);
 		while (!q.isEmpty() && noEnd) {
 			u = q.poll();
+
 			it = g.incidentEdges(u);
 			while (it.hasNext() && noEnd) {
 				e = it.next();
@@ -392,18 +411,28 @@ public class main {
 		}
 		if (noEnd) {
 			v.getElement().setParent(null);
+		} else {
+			s.push(v.getElement().getElement());
+			DecoratedElement<String> t = v.getElement().getParent();
+			while (t.getParent() != null) {
+				s.push(t.getElement());
+				t = t.getParent();
+			}
+			s.push(t.getElement());
 		}
-		return v.getElement().getDistance();
+		return noEnd;
 	}
 
 	/**
 	 * Método que recorre en DFS el grafo para saber la secuencia de personajes que
-	 * unen dos personajes dados. Devuelve un valor booleano para en el backtracking
-	 * saber si es el camino correcto.
+	 * unen dos personajes dados por las relaciones de mayor peso. 
+	 * Devuelve un valor booleano para, en el backtracking, saber si es el camino correcto.
+	 * El recorrido se guardará en una pila.
 	 * 
 	 * @param g           El grafo
 	 * @param source      El personaje de empiece
 	 * @param destination El personaje de destino
+	 * @param s			  La pila donde se va a guardar el recorrido
 	 * @return Si encuentra el personaje de destino devuelve true, si no false
 	 */
 	public static boolean DFS(Graph<DecoratedElement<String>, Weight<String>> g,
@@ -437,7 +466,9 @@ public class main {
 	}
 
 	/**
-	 * Método que devuelve arista de mayor peso .
+	 * Método que devuelve arista de mayor peso. Se utiliza en el
+	 * método DFS para saber cuál arista de un vértice es el que 
+	 * tiene mayor peso.
 	 *
 	 * @param v El vertice
 	 * @param g El grafo
@@ -452,7 +483,8 @@ public class main {
 			edge = iEdge.next();
 			if (r == null) {
 				r = edge;
-			} else if (edge.getElement().getWeight() > r.getElement().getWeight() && !g.opposite(v, edge).getElement().getVisited()) {
+			} else if (edge.getElement().getWeight() > r.getElement().getWeight()
+					&& !g.opposite(v, edge).getElement().getVisited()) {
 				r = edge;
 			}
 		}

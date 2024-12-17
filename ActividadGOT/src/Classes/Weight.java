@@ -4,7 +4,9 @@ import graphsDSESIUCLM.Element;
 
 /**
  * La Clase Weight. Representa una arista con un peso entero.
- *
+ * 
+ * @author Daniel Díaz García
+ * @author Diego Repullo Higueruela
  * @param <E> El tipo de elemento de los vértices que une la arista. Es requerido para generar el ID.
  */
 public class Weight <E> implements Element {
@@ -52,7 +54,7 @@ public class Weight <E> implements Element {
 	}
 	
 	/**
-	 * Consulta el id de la arista.
+	 * Consulta el id de la arista. El id es la suma de los dos hashcode de las cadenas de texto que lo componen.
 	 *
 	 * @return el id de la arista
 	 */
