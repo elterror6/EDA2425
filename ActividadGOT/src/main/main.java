@@ -26,7 +26,7 @@ public class main {
 	/**
 	 * La ruta donde esta el archivo .csv.
 	 */
-	private final static String PATH = "src/main/stormofswords.csv";
+	private final static String PATH = "stormofswords.csv";
 
 	/**
 	 * El método principal.
